@@ -18,50 +18,13 @@
 <body>
 	<%
 		for (int i = 0; i < 5; i++) {
+		for (int j = 0; j <= i; j++) {
 	%>
-	Lorem ipsum dolor.
-
+	*
 	<%
 		}
 	%>
-
-	<%
-		java.util.List<String> list = new java.util.ArrayList<>();
-	list.add("java");
-	list.add("jsp");
-	list.add("spring");
-	list.add("dbms");
-	%>
-
-	<ul>
-		<%
-			for (String item : list) {
-		%>
-
-		<li>
-			<%
-				out.print(item);
-			%>
-		</li>
-
-		<%
-			}
-		%>
-	</ul>
-
-	<%
-		boolean danger = false;
-	%>
-
-	<%
-		if (danger) {
-	%>
-	<h1 class="text-danger">댄져~!</h1>
-
-	<%
-		} else {
-	%>
-	<h1 class="text-info">info~!</h1>
+	<br>
 
 	<%
 		}
