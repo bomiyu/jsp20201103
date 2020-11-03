@@ -1,25 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%!
-int i = 3;
-static int j = 10;
-%>  
     
 <%!
-int k = 20;
+int i = 3;
 %>
-
-<%!
-void mymethod() {
- System.out.println("hello");
-}
-
-static void mymethod2() {
- System.out.println("hello static"); 
-}
-%>
-  
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,16 +15,15 @@ static void mymethod2() {
 <title>Insert title here</title>
 </head>
 <body>
+<%
+int i = 10;
+%>
 
-
-
-<h1>Lorem ipsum dolor.</h1>
-
-<% this.mymethod(); %>
-
-<% mymethod2(); %>
+<%= i %> <br />
+<%= this.i %>
 </body>
 </html>
+
 
 
 
