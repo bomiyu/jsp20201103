@@ -13,6 +13,28 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="">
+	<input type="text" name="id"/><br/>
+	<input type="text" name="pw"/><br/> 
+	<input type="password" name="pw2"/><br/> 
+	<input type="number" name="age"/>
+	<input type="date" name="date"/>
+	<input type="submit" value="전송" />
+</form>
+<%
+String val1 = request.getParameter("id");/* 어튜리뷰트값을 파라미터이름으로 */
+String val2 = request.getParameter("pw");
+String val3 = request.getParameter("pw2");
+String val4 = request.getParameter("age");
+int varl4int = Integer.valueOf(val4);
+String val5 = request.getParameter("date");
+%>
+
+id: <%= val1 %><br/>
+pw: <%= val2 %><br/>
+pw2: <%= val3 %><br/>
+age: <%=val4%><br/>
+date: <%=val5%><br/>
 
 </body>
 </html>
