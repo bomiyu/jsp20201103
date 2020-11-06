@@ -13,29 +13,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>path</h1>
-<a href="<%= request.getContextPath() %>/chap04/lecture/contextPath2.jsp">other file</a>
-<br />
-<a href="contextPathEx2.jsp">other file 2</a>
-<br />
-<a href="<%= request.getContextPath() %>/chap04/lecture/subfolder/pathEx1Sub.jsp">절대 경로</a>
-<br />
-<a href="subfolder/pathEx1Sub.jsp">상대 경로</a><!-- 현재 내가 속해있는 경로 기준으로 어디폴더인지  -->
+3장의 인덱스 페이지
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
