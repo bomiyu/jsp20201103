@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>		
+<%@ page import="chap09.Cookies" %>
 <% request.setCharacterEncoding("utf-8"); %>
-<%@ page session = "true" %>
-<%@ page import = "java.text.SimpleDateFormat" %>
+<% String id = request.getParameter("id");
+String pass = request.getParameter("password");
 
-<%
-	Date time= new Date();
-	SimpleDateFormat formatter = 
-			new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+if(id.equals(pass)){
+	response.addCookie(Cookies.createCookie("AUTH", id, "/", -1));
+
 %>
 
 <!DOCTYPE html>
@@ -20,19 +20,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>세션정보</title>
+<title>로그인성공</title>
 </head>
 <body>
-세션ID: <%= session.getId()%><br>
-<%
-	time.setTime(session.getCreationTime());
-%>
-세션생성시간:<%=formatter.format(time) %><br>
-<%
-	time.setTime(session.getLastAccessedTime());
 
-%>
-최근접근시간: <%= formatter.format(time) %>
-세션 유지시간: <%= formatter. %>
+
+로그인에 성공
+
+
+
 </body>
 </html>
+
+
+<%}else{ //로그인 실패시  %>
+
+<script>
+
+alert("로그인 실패입니다.");
+history.go(-1);
+
+</script>
+<%
+}
+%>

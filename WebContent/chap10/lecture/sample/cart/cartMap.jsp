@@ -18,8 +18,8 @@
 <ul>
 <%
 Map<String, Integer> cart = (Map<String, Integer>) session.getAttribute("cartMap");
-
-if (cart != null && cart.size() > 0) {
+if(cart != null){
+if ( cart.size() > 0) {
   // loop
   for (Map.Entry<String, Integer> entry : cart.entrySet()) {
 %>
@@ -30,6 +30,7 @@ if (cart != null && cart.size() > 0) {
   // 없음 
 %>
   <li>비어있음</li>
+  <%} %>
 <%
 }
 %>

@@ -2,15 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>		
 <% request.setCharacterEncoding("utf-8"); %>
-<%@ page session = "true" %>
-<%@ page import = "java.text.SimpleDateFormat" %>
-
-<%
-	Date time= new Date();
-	SimpleDateFormat formatter = 
-			new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,19 +11,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>세션정보</title>
+<title>Insert title here</title>
 </head>
 <body>
-세션ID: <%= session.getId()%><br>
 <%
-	time.setTime(session.getCreationTime());
+String user= (String) session.getAttribute("user");
+if( user == null){
+	user= "guest";
+}
 %>
-세션생성시간:<%=formatter.format(time) %><br>
-<%
-	time.setTime(session.getLastAccessedTime());
-
-%>
-최근접근시간: <%= formatter.format(time) %>
-세션 유지시간: <%= formatter. %>
+<h1><%= user %>님 안녕하세요.</h1>
 </body>
 </html>

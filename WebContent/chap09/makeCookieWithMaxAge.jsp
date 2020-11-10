@@ -2,15 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>		
 <% request.setCharacterEncoding("utf-8"); %>
-<%@ page session = "true" %>
-<%@ page import = "java.text.SimpleDateFormat" %>
-
 <%
-	Date time= new Date();
-	SimpleDateFormat formatter = 
-			new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	Cookie cookie= new Cookie("oneh", "Itime");
+cookie.setMaxAge(60*60);
+response.addCookie(cookie);
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,19 +16,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>세션정보</title>
+<title>유효시간</title>
 </head>
 <body>
-세션ID: <%= session.getId()%><br>
-<%
-	time.setTime(session.getCreationTime());
-%>
-세션생성시간:<%=formatter.format(time) %><br>
-<%
-	time.setTime(session.getLastAccessedTime());
-
-%>
-최근접근시간: <%= formatter.format(time) %>
-세션 유지시간: <%= formatter. %>
+유효시간1시간인 oneh쿠키생성
 </body>
 </html>

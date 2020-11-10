@@ -2,15 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>		
 <% request.setCharacterEncoding("utf-8"); %>
-<%@ page session = "true" %>
-<%@ page import = "java.text.SimpleDateFormat" %>
-
-<%
-	Date time= new Date();
-	SimpleDateFormat formatter = 
-			new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-%>
-
+<%@ page import = "java.net.URLDecoder" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,19 +12,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>세션정보</title>
+<title>쿠키목록</title>
 </head>
 <body>
-세션ID: <%= session.getId()%><br>
+쿠키목록 <br>
 <%
-	time.setTime(session.getCreationTime());
+	Cookie[] cookies= request.getCookies();
+	if(cookies != null && cookies.length>0){
+		for(int i = 0; i<cookies.length; i++){
+			%>
+			
+			<%= cookies[i].getName()%>=
+			<%= URLDecoder.decode(cookies[i].getValue(), "utf-8") %><br>
+			<%
+		}
+		}else{
+			%>
+			쿠키가 존재하지않습니다.
+			<%
+	}
 %>
-세션생성시간:<%=formatter.format(time) %><br>
-<%
-	time.setTime(session.getLastAccessedTime());
 
-%>
-최근접근시간: <%= formatter.format(time) %>
-세션 유지시간: <%= formatter. %>
 </body>
 </html>
