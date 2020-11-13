@@ -1,0 +1,40 @@
+
+SELECT * FROM EMPLOYEE
+where ename like 'F%';
+
+SELECT * FROM EMPLOYEE
+where ename='F';
+
+SELECT * FROM EMPLOYEE
+WHERE  ENAME LIKE '%M%';
+
+SELECT * FROM EMPLOYEE
+WHERE ENAME LIKE '%N';
+
+SELECT * FROM EMPLOYEE
+WHERE ENAME LIKE '_A%';
+
+SELECT * FROM EMPLOYEE
+WHERE ENAME LIKE '__A%';
+
+SELECT * FROM EMPLOYEE
+WHERE ENAME NOT LIKE '%A%';
+
+SELECT * FROM EMPLOYEE;
+SELECT * FROM EMPLOYEE WHERE commission = null;
+SELECT * FROM EMPLOYEE WHERE commission is null;
+SELECT * FROM EMPLOYEE WHERE commission is not null;
+
+select ename, dno, commission
+from employee;
+
+SELECT * FROM employee
+ORDER BY ENAME;
+SELECT * FROM EMPLOYEE ORDER BY ENO;
+SELECT * FROM EMPLOYEE WHERE SALARY > 2000 ORDER BY ENO;
+
+SELECT * FROM employee
+ORDER BY eno ASC;
+
+select dno, ename from employee
+order by dno, ename;
