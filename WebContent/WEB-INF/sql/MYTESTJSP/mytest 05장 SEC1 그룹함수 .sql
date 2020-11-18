@@ -1,0 +1,64 @@
+
+SELECT SUM(SALARY) AS"급여총액",
+AVG(SALARY) AS"급여평균",
+MAX(SALARY) AS"최대급여",
+MIN(SALARY) AS "최소급여"
+FROM EMPLOYEE;
+
+SELECT MAX(HIREDATE),--최근/ 나중 입사구하기 
+MIN(HIREDATE)
+FROM EMPLOYEE;
+
+SELECT SUM(COMMISSION) AS"커미션 총액"
+FROM EMPLOYEE;
+
+SELECT COUNT(*) AS"사원의 수" --NULL포함한 모든행의 갯수
+FROM EMPLOYEE;
+
+SELECT COUNT(COMMISSION) AS"커미션 받는사원수"
+FROM EMPLOYEE;
+
+SELECT COUNT(DISTINCT JOB) AS"직업종류의 갯수" --JOB중복제외 
+ FROM EMPLOYEE;
+ 
+ SELECT ENAME, MAX(SALARY) -- 그룹함수아닌것을 포함 시키면 실행ERROR
+ FROM EMPLOYEE;
+ 
+ SELECT DNO AS"부서번호", AVG(SALARY) AS"급여평균"--소속 부서별 평균 급여를 부서번호와 함께 출력 
+ FROM EMPLOYEE
+ GROUP BY DNO;
+ 
+ SELECT avg(salary) as"급여평균" --소속 부서별 평균급여 구하기
+ from employee
+ group by dno;
+ 
+ SELECT DNO, ENAME, AVG(SALARY) -- SELECT절에 ENAME이 GROUP BY절에 명시가 되지 않았으므로 실행 ERROR
+ FROM EMPLOYEE
+ GROUP BY DNO;
+ 
+ SELECT DNO, JOB, COUNT(*), SUM(SALARY)--다중칼럼을 이용하여 그룹별로 검색하기
+ FROM EMPLOYEE
+ GROUP BY DNO,JOB
+ ORDER BY DNO, JOB;
+ 
+ SELECT DNO,MAX(SALARY) --부서별 급여 총액이 3000이상인 부서의 번호와 부서별 급여 총액 구하기
+ FROM EMPLOYEE
+ GROUP BY DNO
+ HAVING MAX(SALARY) >= 3000;
+ 
+ SELECT JOB,COUNT(*),SUM(SALARY)-- 직급 , COUNT SUM 출력 / MANAGER 아닌 /급여총액 합 5000이상인 
+ FROM EMPLOYEE
+ WHERE JOB NOT LIKE '%MANAGER%'
+ GROUP BY JOB
+ HAVING SUM(SALARY) >= 5000
+ ORDER BY SUM(SALARY);
+ 
+SELECT MAX(AVG(SALARY))-- 최고급여 출력하기
+FROM EMPLOYEE
+GROUP BY DNO;
+ 
+ 
+ 
+ 
+ 
+ 
