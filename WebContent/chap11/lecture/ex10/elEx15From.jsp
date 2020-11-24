@@ -16,4 +16,4 @@ application.setAttribute("appAttr1", "app value1");
 application.setAttribute("app Attr3", "app value3");
 %>
 
-<jsp:forward page="elEx15To.jsp" />
+<jsp:forward page="elEx15To.jsp" />  
