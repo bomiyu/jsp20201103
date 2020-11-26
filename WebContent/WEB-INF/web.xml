@@ -22,4 +22,75 @@
     <param-name>debugLevel</param-name>
     <param-value>665543</param-value>
   </context-param>
+  
+  <servlet>
+    <servlet-name>servlet01</servlet-name>
+    <servlet-class>chap17.ServletEx01</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>servlet01</servlet-name> <!-- 위의 서블릿과 연결시켜주는것 name끼리 매칭 -->
+    <url-pattern> /ex01</url-pattern> <!-- 사용자 입력하는 주소 -->
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>servlet01</servlet-name> <!-- 위의 서블릿과 연결시켜주는것 name끼리 매칭 -->
+    <url-pattern> /ex011</url-pattern> <!-- 사용자 입력하는 주소 -->
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+    <servlet-name>Servlet-9</servlet-name>
+    <servlet-class>chap17.ServletEx09</servlet-class>
+    <init-param>
+        <param-name>dburl</param-name>
+        <param-value>localhost:1521/oracle</param-value>
+    </init-param>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet-9</servlet-name> <!-- 위의 서블릿과 연결시켜주는것 name끼리 매칭 -->
+    <url-pattern> /ex09</url-pattern> <!-- 사용자 입력하는 주소 -->
+  </servlet-mapping>
+  
+  
+  
+  
+  <!-- 새로추가 -->
+  
+  <servlet>
+    <servlet-name>DBCPInit2</servlet-name>
+    <servlet-class>jdbc.DBCPInit2</servlet-class>
+    <init-param>
+        <param-name>jdbcdriver</param-name>
+        <param-value>com.mysql.jdbc.Driver</param-value>
+    </init-param>
+    
+    <init-param>
+        <param-name>jdbcUrl</param-name>
+        <param-value>
+            jdbc:mysql://localhost:3306/chap14?characterEncoding=utf8
+        </param-value>
+    </init-param>
+    
+    
+    <init-param>
+        <param-name>dbUser</param-name>
+        <param-value>jspexam</param-value>
+        
+    </init-param>
+    
+    <init-param>
+        <param-name>dbPass</param-name>
+        <param-value>jsppw</param-value>
+    </init-param>
+    
+    <init-param>
+        <param-name>poolName</param-name>
+        <param-value>chap14</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+    
+  </servlet>
 </web-app>
