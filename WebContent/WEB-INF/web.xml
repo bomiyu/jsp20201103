@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
-  <display-name>BOMjsp</display-name>
+  <display-name>myjsp</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -9,88 +9,112 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
   <session-config>
-    <session-timeout>30</session-timeout>
+  	<session-timeout>30</session-timeout>
   </session-config>
+
   <context-param>
-    <description>로깅여부</description>
-    <param-name>logEnabled</param-name>
-    <param-value>true</param-value>
-  </context-param>
+    <description>로깅 여부</description>
+  	<param-name>logEnabled</param-name>
+  	<param-value>true</param-value>
+  </context-param>  
+  
   <context-param>
-    <description>디버깅 레벨</description>
-    <param-name>debugLevel</param-name>
-    <param-value>665543</param-value>
+  	<description>디버깅 레벨</description>
+	<param-name>debugLevel</param-name>
+	<param-value>5</param-value>  
   </context-param>
   
   <servlet>
-    <servlet-name>servlet01</servlet-name>
-    <servlet-class>chap17.ServletEx01</servlet-class>
+  	<servlet-name>servlet01</servlet-name>
+  	<servlet-class>chap17.ServletEx01</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>servlet01</servlet-name> <!-- 위의 서블릿과 연결시켜주는것 name끼리 매칭 -->
-    <url-pattern> /ex01</url-pattern> <!-- 사용자 입력하는 주소 -->
+  	<servlet-name>servlet01</servlet-name>
+  	<url-pattern>/ex01</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
-    <servlet-name>servlet01</servlet-name> <!-- 위의 서블릿과 연결시켜주는것 name끼리 매칭 -->
-    <url-pattern> /ex011</url-pattern> <!-- 사용자 입력하는 주소 -->
+  	<servlet-name>servlet01</servlet-name>
+  	<url-pattern>/ex011</url-pattern>
   </servlet-mapping>
-  
-  
-  
-    <servlet>
-    <servlet-name>Servlet-9</servlet-name>
-    <servlet-class>chap17.ServletEx09</servlet-class>
-    <init-param>
-        <param-name>dburl</param-name>
-        <param-value>localhost:1521/oracle</param-value>
-    </init-param>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>Servlet-9</servlet-name> <!-- 위의 서블릿과 연결시켜주는것 name끼리 매칭 -->
-    <url-pattern> /ex09</url-pattern> <!-- 사용자 입력하는 주소 -->
-  </servlet-mapping>
-  
-  
-  
-  
-  <!-- 새로추가 -->
   
   <servlet>
-    <servlet-name>DBCPInit2</servlet-name>
-    <servlet-class>jdbc.DBCPInit2</servlet-class>
-    <init-param>
-        <param-name>jdbcdriver</param-name>
-        <param-value>com.mysql.jdbc.Driver</param-value>
-    </init-param>
-    
-    <init-param>
-        <param-name>jdbcUrl</param-name>
-        <param-value>
-            jdbc:mysql://localhost:3306/chap14?characterEncoding=utf8
-        </param-value>
-    </init-param>
-    
-    
-    <init-param>
-        <param-name>dbUser</param-name>
-        <param-value>jspexam</param-value>
-        
-    </init-param>
-    
-    <init-param>
-        <param-name>dbPass</param-name>
-        <param-value>jsppw</param-value>
-    </init-param>
-    
-    <init-param>
-        <param-name>poolName</param-name>
-        <param-value>chap14</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-    
+  	<servlet-name>Servlet9</servlet-name>
+  	<servlet-class>chap17.ServletEx09</servlet-class>
+  	<init-param> 
+  		<param-name>dburl</param-name>
+  		<param-value>jdbc:oracle:thin:@localhost:1521:orcl</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>dbid</param-name>
+  		<param-value>c##mydbms</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>dbpw</param-name>
+  		<param-value>admin</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
   </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Servlet9</servlet-name>
+  	<url-pattern>/ex09</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ControllerUsingURI</servlet-name>
+  	<servlet-class>chap18.ControllerUsingURI</servlet-class>
+  	<init-param>
+  		<param-name>configFile</param-name>
+  		<param-value>/WEB-INF/commandHandlerURI.properties</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ControllerUsingURI</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  	<filter-name>filter01</filter-name>
+  	<filter-class>chap19.lecture.Filter01</filter-class>
+  </filter>
+  
+  <filter>
+  	<filter-name>filter02</filter-name>
+  	<filter-class>chap19.lecture.Filter02</filter-class>
+  </filter>
+  
+  <filter>
+  	<filter-name>request-encoding</filter-name>
+  	<filter-class>chap19.lecture.Filter03ReqEncoding</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>request-encoding</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>filter02</filter-name>
+  	<url-pattern>/filter/ex1</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>filter01</filter-name>
+  	<url-pattern>/filter/*</url-pattern>
+  </filter-mapping>
 </web-app>
+
+
+
+
+
+
+
+
+
+
