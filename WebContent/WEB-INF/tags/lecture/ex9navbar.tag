@@ -1,6 +1,6 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
+<%@ attribute name="form" type="java.lang.Boolean" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ attribute name="form"  %>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
@@ -17,13 +17,18 @@
       </c:forEach>
     </ul>
     
-    
-    <c:if test="${form}">
-        <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <c:if test="${form }" >
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </c:if>
-    
   </div>
 </nav>
+
+
+
+
+
+
+

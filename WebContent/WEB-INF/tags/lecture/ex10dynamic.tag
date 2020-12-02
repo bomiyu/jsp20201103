@@ -3,16 +3,21 @@
 <%@ tag dynamic-attributes="attr" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-${attr.attr1}
 
-<br/>
+${attr.attr1 }
+<br />
+${attr["attr2"] }
+<br />
 
-${attr["attr2"]}
+<hr />
 
-<br/>
-
-
-<hr/>
-<c:forEach items="${attr }" var="entry" >
-<li>${entry.key }: ${entry.value }</li>
+<ul>
+<c:forEach items="${attr }" var="entry">
+  <li>${entry.key } : ${entry.value }</li>  
 </c:forEach>
+</ul>
+
+
+
+
+
