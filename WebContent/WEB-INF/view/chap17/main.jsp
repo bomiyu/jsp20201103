@@ -41,7 +41,11 @@
         <c:forEach items="${ posts}" var="post">
           <tr>
             <td>${post.id }</td>
-            <td>${post.title }</td>
+            <td>
+              <a href="<%= request.getContextPath() %>/sample3/post/detail?id=${post.id}">
+                ${post.title }
+              </a>
+            </td>
           </tr>
         </c:forEach>
     </tbody>

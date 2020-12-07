@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chap05.Post;
+import chap20.lecture.DBUtil;
 
 /**
  * Servlet implementation class MainServlet
@@ -52,19 +53,20 @@ public class MainServlet extends HttpServlet {
     private List<Post> getPosts() {
         List<Post> list = new ArrayList<>();
 
-        String sql = "SELECT id, title FROM post ORDER BY id DESC";// post 테이블에서 id, title을 id의 내림차순
+        // post 테이블에서 id, title을 id의 내림차순
+        String sql = "SELECT id, title FROM post ORDER BY id DESC";
 
-//        String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//      String url = "jdbc:oracle:thin:@localhost:1521:orcl";
         // jdbc:oracle:thin:@mydb501_high?TNS_ADMIN=C:\\Users\\mydb00\\Documents\\Wallet_mydb501
-      String url = "jdbc:oracle:thin:@mydb501_high?TNS_ADMIN=C:\\Users\\admin\\Documents";
-        String user = "mydb15"; // mydb00
-        String password = "adminAdmin12"; // adminAdmin12
+//      String url = "jdbc:oracle:thin:@mydb501_high?TNS_ADMIN=C:\\Users\\admin\\Documents\\Wallet_mydb501";
+//      String user = "c##mydbms"; // mydb00
+//      String password = "admin"; // adminAdmin12
 
         try {
-            // 1.드라이버로딩
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+
             // 2.연결생성
-            Connection con = DriverManager.getConnection(url, user, password);
+//          Connection con = DriverManager.getConnection(url, user, password);
+            Connection con = DBUtil.getConnection();
             // 3.statement생성
             Statement stmt = con.createStatement();
             // 4.쿼리 실행
